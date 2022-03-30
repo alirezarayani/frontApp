@@ -25,7 +25,6 @@ const routes: Routes = [
   declarations: [LoginComponent, AuthComponent],
   imports: [
     CommonModule,
-    HttpClientModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule
   ]

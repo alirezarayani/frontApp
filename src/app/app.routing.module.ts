@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
-import {PreloadingStrategy, Router, RouterModule, Routes} from '@angular/router';
-
+import {PreloadAllModules, PreloadingStrategy, Router, RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {path: 'auth', loadChildren: () => import('src/app/auth/auth.module').then(m => m.AuthModule)},
@@ -8,7 +7,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})
   ],
   exports: [RouterModule]
 })
