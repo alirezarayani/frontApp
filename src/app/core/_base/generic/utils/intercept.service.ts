@@ -11,9 +11,7 @@ export class InterceptService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
     const httpRequest = req.clone({url: this.apiEndPoint + req.url, headers: req.headers.set(this.CONTACT_TYPE, this.APPLICATION_JSON)});
-
     return next.handle(httpRequest);
   }
 }
