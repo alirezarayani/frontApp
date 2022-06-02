@@ -21,7 +21,10 @@ export abstract class GenericService<T> {
     return this.http.post<T>(this.resourceUrl, model);
   }
 
-  get(): Observable<T> {
+  getByID(): Observable<T> {
     return this.http.get<T>(this.resourceUrl);
+  }
+  getAll(): Observable<T[]> {
+    return this.http.get<T[]>(this.resourceUrl);
   }
 }
