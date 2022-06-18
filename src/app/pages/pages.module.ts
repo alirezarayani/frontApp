@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {QuestionComponent} from './question/question.component';
 import {SharedModule} from '../shared/shared.module';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    MatRadioModule,
   ]
 })
 export class PagesModule {

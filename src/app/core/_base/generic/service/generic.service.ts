@@ -1,9 +1,9 @@
 import {Observable} from 'rxjs';
 import {environment} from '../../../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import {BizEntityModel} from '../../../../pages/model/bizEntity.model';
 
-export abstract class GenericService<T> {
+export abstract class GenericService<T extends BizEntityModel> {
 
   readonly apiEndPoint = environment.apiEndPoint;
   readonly apiPublic = environment.publicAPI;
@@ -21,9 +21,14 @@ export abstract class GenericService<T> {
     return this.http.post<T>(this.resourceUrl, model);
   }
 
-  getByID(): Observable<T> {
-    return this.http.get<T>(this.resourceUrl);
+  getListByID(id?: number): Observable<T[]> {
+    return this.http.get<T[]>(this.resourceUrl + '/' + id);
   }
+
+  getByID(id?: number): Observable<T> {
+    return this.http.get<T>(this.resourceUrl + '/' + id);
+  }
+
   getAll(): Observable<T[]> {
     return this.http.get<T[]>(this.resourceUrl);
   }
